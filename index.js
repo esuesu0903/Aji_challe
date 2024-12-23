@@ -16,8 +16,20 @@ const mimeTypes = {
 const hostname = "127.0.0.1";
 const port = 3000;
 
+function serveFile(filePath, contentType, res) {
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("500 Internal Server Error");
+    } else {
+      res.writeHead(200, { "Content-Type": contentType });
+      res.end(data);
+    }
+  });
+}
+
 const server = http.createServer((req, res) => {
-  let filePath = "." + req.url; // リクエストされたURLを基にファイルパスを作成
+  let filePath = url.parse(req.url, true); // リクエストされたURLを基にファイルパスを作成
 
   // デフォルトのルート（トップページの場合はindex.htmlを提供）
   if (filePath === "./") {
