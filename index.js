@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 const http = require("node:http");
+=======
+const http = require("http");
+>>>>>>> Stashed changes
 const fs = require("fs");
 const path = require("path");
 
@@ -39,13 +43,11 @@ const server = http.createServer((req, res) => {
     console.log(filePath);
   }
 
-  // ファイルの拡張子を取得
   const extname = path.extname(filePath);
 
   // MIMEタイプを決定
   const contentType = mimeTypes[extname] || "application/octet-stream";
 
-  // ファイルを読み込んでレスポンスを送信
   fs.readFile(filePath, (error, content) => {
     if (error) {
       if (error.code === "ENOENT") {
