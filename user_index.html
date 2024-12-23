@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
+ <head>
     <meta charset="UTF-8"/>
     <title>Shinde</title>
-    <meta description content="kali"/>
-    <meta keywords content="kali"/>
-    <style>
+    <meta name="description" content="kali"/>
+    <meta name="keywords" content="kali"/>
+  <style>
+  @font-face {
+    font-family: "SourceCodePro";
+    src: url(font/SourceCodePro.ttf);
+  }
+  html {
+    font-family: "SourceCodePro", serif;
+  }
+  body{
+    margin: 0;
+  }
   .header-left {
     position: fixed;
     top: 0;
@@ -38,8 +48,38 @@
     text-decoration: none;
     font-size: large;
   }
-    </style>
-  </head>
+  .main-img{
+    margin-left: 20%; 
+    margin-top: 0;
+    position: relative;
+  }
+  .user-img{
+    height: 300px;
+    width: 500px;
+    object-fit: cover;
+    margin-top: 0;
+  }
+  .blurred{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width:40%;
+    height: 300px;
+    padding-left: 500px;
+    background: linear-gradient(to right, transparent,rgba(255,255,255,1),rgba(255,255,255,0));
+    filter: blur(10px);
+    z-index: 0;
+  }
+  .user-name{
+    position: absolute;
+    top: 50px;
+    left: 20%;
+    font-size: 100px;
+    z-index: 1;
+  }
+  </style>
+</head>
+<body>
   <header class="header-left">
     <div class="side-menu-left">
         <div class="side-menu-wrapper-left">
@@ -52,4 +92,12 @@
         </div>
     </div>
   </header>
+  <main>
+    <div class="main-img">
+      <img src="img/sample1.jpg" class="user-img">
+      <div class="blurred"></div>
+      <p class="user-name">きたせいや</p>
+    </div>
+  </main>
+</body>
 </html>
