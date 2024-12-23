@@ -1,4 +1,14 @@
 // script.js
+const sqlite3 = require("sqlite3");
+const db = new sqlite3.Database("./main.db");
+
+db.serialize(() => {
+  db.run(`CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL
+  )`);
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("favorites-form");
@@ -73,3 +83,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // ページ読み込み時にプレビューを初期化
   updatePreview();
 });
+
+db.close();
