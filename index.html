@@ -15,7 +15,7 @@
       </div>
       <div class="topic-content">
         <!--USER_BLOCK-->
-        <a href="http://127.0.0.1:3000/user_" class="user-card">
+        <a href="http://127.0.0.1:3000/user_" id="SaitouMokichi">
           <div class="card-media">
             <!-- media container -->
             <div class="card-media-object-container">
@@ -44,7 +44,7 @@
         <!--/USER_BLOCK-->
 
         <!--USER_BLOCK-->
-        <a href="http://127.0.0.1:3000/user_" class="user-card">
+        <a href="http://127.0.0.1:3000/user_" id="YosanoAkiko">
           <div class="card-media">
             <!-- media container -->
             <div class="card-media-object-container">
@@ -71,6 +71,19 @@
           </div>
         </a>
         <!--/USER_BLOCK-->
+        <script>
+          // 全てのリンクにクリックイベントを追加
+          document.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", (event) => {
+              event.preventDefault(); // デフォルトのリンク動作を無効化
+
+              // クリックされたリンク（aタグのみ）のidを取得
+              const clickedId = event.currentTarget.id;
+              console.log(`Clicked text: ${clickedId}`);
+              alert(`Clicked text: ${clickedId}`); // アラートで表示
+            });
+          });
+        </script>
       </div>
     </main>
   </body>
